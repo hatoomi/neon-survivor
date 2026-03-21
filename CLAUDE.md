@@ -44,3 +44,20 @@ Wave increments every 600 frames. Each wave: spawn interval decreases (min 20 fr
 - Entities use an `alive` boolean flag; `game.js` splices dead entities from arrays during the update loop (iterate in reverse).
 - Canvas glow effects use `ctx.shadowColor`/`ctx.shadowBlur` — always reset `shadowBlur = 0` after drawing.
 - Audio uses short-lived `OscillatorNode`s created per sound; no audio files.
+
+## Version Control Rules
+
+- You must use git for all changes in this project
+- After every meaningful change:
+  1. Stage the changes
+  2. Create a commit with a clear, structured message
+  3. Push the commit to GitHub
+
+- Commit message format:
+  - `feat:` for new features
+  - `fix:` for bug fixes
+  - `refactor:` for improvements
+  - `chore:` for maintenance
+
+- Do not proceed with new work unless previous changes are committed and pushed
+- Ensure the repository is always in a clean and synced state
