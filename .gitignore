@@ -1,0 +1,38 @@
+# OpenClaw workspace gitignore
+
+# Node modules and dependencies
+node_modules/
+.npm/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+credentials/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak.bak
+temp/
+
+# Large project directories (keep separate repos)
+tandem-browser/
+
