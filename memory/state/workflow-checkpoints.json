@@ -1,1 +1,18 @@
-{"schema_version":"1.0","last_updated":"2026-03-29T12:08:30Z","checkpoints":[]}
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-03-29T15:21:00Z",
+  "checkpoints": [
+    {
+      "id": "memory-upgrade-v2",
+      "status": "complete",
+      "completed": "2026-03-29",
+      "notes": "All phases complete, GitHub pushed, rules in AGENTS.md"
+    },
+    {
+      "id": "telegram-polling-fix",
+      "status": "in-progress",
+      "started": "2026-03-29",
+      "notes": "Bot sends OK, polling returns 401, root cause under investigation"
+    }
+  ]
+}

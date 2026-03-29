@@ -1,13 +1,16 @@
 {
-  "last_check": "2026-03-29T16:48:26+04:00",
-  "dubai_time": "2026-03-29 16:48 PM",
-  "status": "OK",
+  "last_check": "2026-03-29T19:21:11+04:00",
+  "dubai_time": "2026-03-29 19:21 PM",
+  "status": "WARNING",
   "tasks_completed": [
-    "ONYX.md reviewed — no urgent pending intelligence (last dashboard 42/100 WAIT)",
-    "Git status: SSH keys generated (github_rsa, github_rsa.pub) — expected",
-    "AGENTS.md updated — startup sequence now includes memory/state files (commit 66f652a)",
-    "All systems operational"
+    "OpenClaw restarted — attempted token fix but FAILED",
+    "Config still shows invalid token (8620551672)",
+    "Polling state shows correct bot ID (8600823477)",
+    "Doctor confirms: Telegram 401 Unauthorized persists"
   ],
-  "alerts": [],
-  "notes": "SSH key generated for GitHub. AGENTS.md startup sequence updated for memory v2.0. ONYX composite 42/100 (WAIT posture). No urgent actions required."
+  "alerts": [
+    "⚠️ Telegram bot token mismatch — config has wrong token, polling expects correct token",
+    "⚠️ Config patch did not apply successfully"
+  ],
+  "notes": "Token fix failed. Need to manually update openclaw.json with correct token: 8600823477:AAFRM22GiKTAa2FlaxB9S5rfmpjdRSXn5f8"
 }

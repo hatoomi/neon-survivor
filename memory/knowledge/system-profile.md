@@ -364,9 +364,72 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 
 ---
 
-**Version:** 1.4  
-**Last Curated:** 2026-03-29 17:15 Dubai Time  
+---
+
+## 🔐 GITHUB CONFIGURATION (2026-03-29)
+
+**Repository:** hatoomi/neon-survivor  
+**Remote URL:** git@github.com:hatoomi/neon-survivor.git  
+**Branch:** main
+
+**SSH Key:**
+- Type: ED25519
+- Location: /data/.openclaw/workspace/secrets/github_rsa (chmod 600, NEVER commit)
+- Public key: secrets/github_rsa.pub
+- Fingerprint: SHA256:kY+mslLbDY+3AHHtEoh/8Wn7xaktUzfq3FuDbcaGid4
+
+**MANDATORY Push Command:**
+```bash
+GIT_SSH_COMMAND='ssh -i /data/.openclaw/workspace/secrets/github_rsa' git push origin main
+```
+
+**Rules:**
+- Plain `git push` is FORBIDDEN
+- Always verify secrets/ in .gitignore before git add
+- secrets/ is permanently gitignored — NEVER commit
+
+---
+
+## 📱 TELEGRAM CONFIGURATION (2026-03-29)
+
+**Bot:** @Hatoomi_bot  
+**Bot ID:** 8600823477  
+**Personal Chat:** Active and working ✅  
+
+**Group: FAMILY BOT**
+- Chat ID: -5139970802
+- Members: Mohammed + Alina (wife) + Hatoomi
+- groupAllowFrom: unrestricted (all members can interact)
+- groupPolicy: open
+
+**Status:**
+- Manual send: ✅ Working
+- Automatic polling: ⚠️ 401 error (token mismatch, pending fix)
+
+---
+
+## 💾 MEMORY SYSTEM v2.0 (2026-03-29)
+
+**Architecture:** Tiered (runtime/state/knowledge/logs)
+
+**Key Paths:**
+- memory/state/ — System state (atomic writes)
+- memory/knowledge/ — Curated knowledge
+- memory/archive/ — Historical logs (90-day retention)
+- logs/ — System logs (append-only)
+- backups/ — Snapshots (daily/weekly/monthly)
+- config/ — Policies
+
+**Safe Write:** Mandatory for all JSON (tmp → validate → atomic replace)
+
+**Daily Save:** v2.0 protocol with SSH push command
+
+---
+
+**Version:** 1.5  
+**Last Curated:** 2026-03-29 23:21 Dubai Time  
 **Changelog:**
+- v1.5 (2026-03-29 23:21): GitHub SSH config, Telegram group config, Memory v2.0 paths documented
 - v1.4 (2026-03-29 17:15): Memory system v2.0 upgrade complete (tiered architecture), BTC DATA AGENT removed, Git security rules added
 - v1.3 (2026-03-29 12:20): Added ONYX ELITE first dashboard run (Composite 42/100), Signal Engine v1.1 (MODULE 10), latest git commits
 - v1.2 (2026-03-29 12:04): Added Telegram bot update, current BTC snapshot (March 29), git repository status
