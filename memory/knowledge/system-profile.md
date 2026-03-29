@@ -45,28 +45,7 @@
 - ⚠️ Containerized environment (no systemd, local gateway only)
 - ✅ Exec approvals active (elevated commands require explicit approval)
 
-### BTC DATA AGENT
-**Location:** `/data/.openclaw/workspace/docs/BTC_DATA_AGENT.md`  
-**Purpose:** Automated BTC metrics collection (OI, funding, liquidations, ETF flows, on-chain, L/S ratios)  
-**Status:** v1.0 operational (2026-03-20)  
-**Output:** `data/btc_latest.json` + `data/btc_latest.txt`  
-**Sources:** Coinglass API, Binance public APIs, CoinGecko  
-**Rule:** Never use "available on request" — concrete values or "UNAVAILABLE — reason"
 
-**Key Metrics Collected:**
-- Price, 24h high/low, volume (Binance)
-- Open Interest (aggregated, 1h close + 24h delta)
-- Funding Rate (OI-weighted, latest)
-- Liquidations (24h shorts + longs)
-- Long/Short Ratios (global, top accounts, top positions, 4h trend)
-- ETF Flows (latest, top 3 breakdown: IBIT/GBTC/FBTC)
-- On-Chain Balances (Binance/Coinbase 24h deltas)
-- Options Max Pain (Deribit)
-- Fear & Greed Index
-
-**Outstanding:** RSI (compute from Binance klines), Pi Cycle/Rainbow (timeouts), Taker Buy/Sell (empty datasets), Deribit options totals aggregation
-
----
 
 ## 📈 TRADING & ANALYSIS FRAMEWORKS
 
@@ -296,18 +275,12 @@ G. Narrative (sector rotation, attention flow, narrative strength)
    - Wire on-chain whale tracking (Whale Alert, Glassnode)
    - Build ELG calculator (Fed data feeds: TGA, RRP, SOFR)
 
-2. **BTC DATA AGENT Enhancements:**
-   - Add RSI calculation (Binance klines, 1h, 14-period)
-   - Add Deribit options aggregator (total OI, put/call split, nearest expiry)
-   - Add Pi Cycle / Rainbow retries (robust fallbacks)
-   - Add Taker Buy/Sell retrieval (symbol/pair/exchange variations)
-
-3. **ALTFINS SYSTEM:**
+2. **ALTFINS SYSTEM:**
    - Wire live altcoin data feeds (CoinGecko, Binance, Messari)
    - Build scanning engine for 8 prompts
    - Output format: ranked opportunities with entry/SL/TP
 
-4. **Memory Maintenance:**
+3. **Memory Maintenance:**
    - Review daily logs every few days
    - Update MEMORY.md with distilled learnings
    - Remove outdated info from MEMORY.md
