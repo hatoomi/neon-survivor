@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-03-29T15:33:00Z",
+  "last_updated": "2026-03-29T15:36:00Z",
   "checkpoints": [
     {
       "id": "memory-upgrade-v2",
@@ -20,6 +20,35 @@
       "status": "complete",
       "completed": "2026-03-29T15:33:00Z",
       "notes": "Full system state save: Memory v2.0, GitHub SSH, Telegram group, BTC agent removal, all files committed and pushed"
+    },
+    {
+      "id": "telegram-polling-401-fix",
+      "status": "in-progress",
+      "priority": "HIGH",
+      "started": "2026-03-29",
+      "title": "Telegram polling returning 401 Unauthorized",
+      "description": "Bot token works for sending messages but automatic polling is failing with 401 error. OpenClaw cannot auto-receive messages from Telegram groups.",
+      "findings": [
+        "Bot token is valid — manual send works",
+        "Bot is in FAMILY BOT group (Chat ID: -5139970802)",
+        "Polling mechanism returning 401 Unauthorized",
+        "Update offset unchanged — bot not receiving webhooks",
+        "Root cause: polling config may use different token than send config"
+      ],
+      "fix_steps": [
+        "1. Read current bot token from openclaw.json",
+        "2. Test token: curl https://api.telegram.org/bot<TOKEN>/getMe",
+        "3. If ok:true — update polling config to use same token",
+        "4. Restart Telegram polling service",
+        "5. Send test message from FAMILY BOT group",
+        "6. Verify OpenClaw auto-processes it without manual intervention"
+      ],
+      "affected": [
+        "Telegram auto-polling",
+        "FAMILY BOT group responses",
+        "Wife cannot get auto-responses in group"
+      ],
+      "resume_instruction": "On next session start, check this checkpoint and fix the Telegram polling 401 error as first priority task."
     }
   ]
 }

@@ -74,4 +74,13 @@ Wake up fresh each session.
 Files are memory — read them, update them, build on them.
 If it is not written down, it does not exist.
 
+## OPEN ISSUES (resolve at next session start)
+
+1. TELEGRAM POLLING 401
+ - Bot token valid, sending works
+ - Polling broken — 401 Unauthorized
+ - Fix: check openclaw.json token vs polling config
+ - Details: memory/state/workflow-checkpoints.json
+ - ID: telegram-polling-401-fix
+
 ## END OF SOUL
