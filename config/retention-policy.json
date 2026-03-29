@@ -1,0 +1,1 @@
+{"schema_version":"1.0","runtime":{"max_age_hours":24,"action":"clear"},"daily_logs":{"keep_days":7,"archive_after_days":7,"delete_after_days":90},"sessions_raw":{"keep_days":30,"archive_after_days":30},"snapshots":{"daily_keep":7,"weekly_keep":4,"monthly_keep":3},"memory_events_log":{"rotate":"weekly","max_size_mb":10}}

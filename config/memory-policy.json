@@ -1,0 +1,1 @@
+{"schema_version":"1.0","tiers":{"runtime":{"persist":false,"owner":"system","max_age_hours":24},"state":{"persist":true,"owner":"core-controller","write_mode":"atomic"},"knowledge":{"persist":true,"owner":"agent-scoped","write_mode":"edit"},"logs":{"persist":true,"owner":"system","write_mode":"append-only"}}}
