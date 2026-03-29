@@ -15,7 +15,6 @@ Style: Institutional swing trading + intraday
 Sessions: London Open + London/NY overlap (primary)
  Asian session (observation only — no entries)
 Dead Zone: 00:00-02:00 Dubai — no entries ever
-Framework: Galaxy Trading System (Prompt A + Prompt B)
 Methodology: Smart Money Concepts (SMC) + ICT + Macro Liquidity
 
 ## Risk Rules (Non-Negotiable)
@@ -27,7 +26,6 @@ Daily loss cap: Stop after 3 consecutive losses
 Blackout windows: FOMC, CPI, NFP, PCE — ±30 min no entries
 EM-5 / EM-6 phases: NO TRADE — fully suspended
 EM-3 phase: No new longs only
-Galaxy Gate must be YES or CONDITIONAL before any trade
 
 ## Trading Vocabulary
 BOS — Break of Structure
@@ -57,7 +55,7 @@ EM phases EM1-EM6 determine directional bias
 ## Data Sources
 CoinGlass — primary real-time data (screenshots as input)
 altFINS MCP — OHLCV candles, altcoin scanning
-LunarCrush MCP — Galaxy Score, AltRank, sentiment
+LunarCrush MCP — AltRank, sentiment
 Deribit / Laevitas — options, derivatives
 CryptoQuant — on-chain
 FRED — macro data
@@ -66,11 +64,9 @@ Coinalyze — funding, OI
 ## Tech Stack
 VPS: Hostinger (IP: 187.77.139.185)
 Agent: OpenClaw (Node.js) — running on VPS
-Pipeline: Galaxy BTC OPS (run_galaxy.py) — Windows machine
 GitHub: hatoomi/neon-survivor (main branch)
-Claude Code — Galaxy system brain
 TradingView — charts and Pine Script indicators
-AI models: Claude Opus (Galaxy pipeline) + Claude Sonnet (OpenClaw)
+AI models: Claude Sonnet (OpenClaw agent)
 
 ## Communication Style
 Direct. Command-style. Often all-caps.
@@ -91,18 +87,14 @@ Risk-first mindset — always flag risk before opportunity.
 - System always backed up and memory always current
 
 ## Active Projects (as of 2026-03-27)
-1. Galaxy Trading System — BTC/USDT.P institutional pipeline
- - VP-001 v1.1 plugin deployed (Trader Dale Volume Profile)
- - Next: wire VP engines into Prompt B injection
-
-2. ONYX ELITE — crypto intelligence terminal
+1. ONYX ELITE — crypto intelligence terminal
  - Activated 2026-03-27
  - Next: data pipelines (stablecoins, ETF flows, ELG calculator)
 
-3. BTC DATA AGENT — metrics collection framework
+2. BTC DATA AGENT — metrics collection framework
  - Next: RSI, Deribit options, Pi Cycle, Taker Buy/Sell
 
-4. ALTFINS SYSTEM — altcoin scanning engine
+3. ALTFINS SYSTEM — altcoin scanning engine
  - Next: live feeds, 8-prompt scanning engine
 
 ## END OF USER PROFILE

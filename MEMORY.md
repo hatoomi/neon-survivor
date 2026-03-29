@@ -70,7 +70,7 @@
 
 ## 📈 TRADING & ANALYSIS FRAMEWORKS
 
-### GALAXY OS — Macro Crypto Cycle Engine
+### BTC Macro Cycle Framework
 **Created:** 2026-03-06  
 **Purpose:** Multi-layer BTC macro analysis framework  
 
@@ -91,22 +91,8 @@ ELG = 0.40 × (-Z(SOFR - Fed Funds)) + 0.30 × (-Z(ΔTGA)) + 0.30 × (-Z(ΔRRP))
 6. Bear Contraction
 7. High Volatility Transition
 
-**Swissblock Proxy Signals:**
-- Market Allocation (Tactical / Strategic)
-- BTC vs Alt Cycle (BTC dominance, rotation timing)
-- Bitcoin Risk Signal (volatility, drawdown, liquidation risk)
-
-**Galaxy OS Composite Score (0-100):**
-- ELG (Liquidity)
-- Swissblock Signals
-- Derivatives (funding, OI, liquidations)
-- On-Chain (whale flows, exchange balances)
-- Technical (HTF/MTF/LTF structure)
-- Fundamentals (ETF flows, adoption)
-
-**Last Run (2026-03-06):**
+**Last ELG Calculation (2026-03-06):**
 - ELG: 58/100 (EM4 Recovery)
-- Composite: 62/100 (Bull Expansion)
 - Regime: Early Bull
 
 ---

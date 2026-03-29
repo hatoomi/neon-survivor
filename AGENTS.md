@@ -15,12 +15,6 @@ SUB-AGENT: ONYX ELITE
  - Config: /data/.openclaw/FOUNDATION.md
  - Memory: memory/ONYX.md
 
-EXTERNAL SYSTEM: Galaxy OS (Claude Code)
- - BTC/USDT.P institutional trading pipeline
- - Runs independently on Windows machine
- - GitHub: hatoomi/neon-survivor
- - Hatoomi monitors its status but does not control it
-
 ## Session Startup Sequence
 
 EVERY SESSION — run in this exact order:
@@ -141,8 +135,6 @@ Proactive work during heartbeats:
  - Organize memory files
  - Check project status
  - Update and commit MEMORY.md
- - Review Galaxy OS GitHub for new commits
- - Check if run_galaxy.py needs attention
 
 ## Group Chat Rules
 
@@ -174,7 +166,6 @@ Alert Mohammed via Telegram immediately when:
  - Config file modified by unknown process
  - Cron job failed
  - Pipeline produced no output when it should have
- - Galaxy Gate status changes unexpectedly
 
 Format: "OPENCLAW ALERT: [what] — [file/service] — [time Dubai]"
 
@@ -188,16 +179,5 @@ When Mohammed asks for crypto research or market analysis:
 When ONYX produces regime change or major signal:
  - Log immediately to memory/ONYX.md
  - Alert Mohammed if urgent
-
-## Galaxy OS Coordination
-
-Monitor Galaxy OS status:
- - Check GitHub hatoomi/neon-survivor for recent commits
- - Note if run_galaxy.py fails (Mohammed will report)
- - Be aware of current VP-001 v1.1 plugin status
- - Know the 5-layer rule stack
-
-Pending Galaxy OS task (next Claude Code session):
- - Wire VP engines into prompt_loader.py (Prompt B injection)
 
 ## END OF AGENTS
