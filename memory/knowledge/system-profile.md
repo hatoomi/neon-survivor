@@ -394,6 +394,7 @@ GIT_SSH_COMMAND='ssh -i /data/.openclaw/workspace/secrets/github_rsa' git push o
 
 **Bot:** @Hatoomi_bot  
 **Bot ID:** 8600823477  
+**Bot Token:** 8600823477:AAFRM22GiKTAa2FlaxB9S5rfmpjdRSXn5f8 (active)
 **Personal Chat:** Active and working ✅  
 
 **Group: FAMILY BOT**
@@ -404,7 +405,8 @@ GIT_SSH_COMMAND='ssh -i /data/.openclaw/workspace/secrets/github_rsa' git push o
 
 **Status:**
 - Manual send: ✅ Working
-- Automatic polling: ⚠️ 401 error (token mismatch, pending fix)
+- Automatic polling: ✅ FIXED (token corrected 23:32 PM — 8620551672 → 8600823477)
+- Group session: ✅ Active (detected by doctor)
 
 ---
 
@@ -426,9 +428,10 @@ GIT_SSH_COMMAND='ssh -i /data/.openclaw/workspace/secrets/github_rsa' git push o
 
 ---
 
-**Version:** 1.5  
-**Last Curated:** 2026-03-29 23:21 Dubai Time  
+**Version:** 1.6  
+**Last Curated:** 2026-03-29 23:33 Dubai Time  
 **Changelog:**
+- v1.6 (2026-03-29 23:33): Telegram polling 401 FIXED, final session save, all systems confirmed operational
 - v1.5 (2026-03-29 23:21): GitHub SSH config, Telegram group config, Memory v2.0 paths documented
 - v1.4 (2026-03-29 17:15): Memory system v2.0 upgrade complete (tiered architecture), BTC DATA AGENT removed, Git security rules added
 - v1.3 (2026-03-29 12:20): Added ONYX ELITE first dashboard run (Composite 42/100), Signal Engine v1.1 (MODULE 10), latest git commits
