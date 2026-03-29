@@ -1,0 +1,8 @@
+Timestamp (UTC): 2026-03-21T15:18:21.820844+00:00
+
+BTC Snapshot:
+  Price: n/a  |  24h: n/a  |  OI: n/a  |  Funding: n/a
+  Liquidations: recent data available
+
+Fear & Greed Index: n/a
+Key Signals: best-effort highlights based on extremes will be added as endpoint fields stabilize.

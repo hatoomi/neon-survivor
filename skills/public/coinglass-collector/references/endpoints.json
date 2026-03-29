@@ -1,0 +1,90 @@
+{
+  "base_url": "https://open-api-v4.coinglass.com",
+  "headers": { "api_key_headers": ["CG-API-KEY", "coinglassSecret", "X-API-KEY"] },
+  "market_metadata": {
+    "coins": { "path": "/api/futures/supported-coins" },
+    "pairs": { "path": "/api/instruments" },
+    "exchanges": { "path": "/api/futures/exchange-list" }
+  },
+  "market_data": {
+    "coins_summary": { "path": "/api/futures/coins-markets" },
+    "pairs_summary": { "path": "/api/futures/pairs-markets" },
+    "price_changes": { "path": "/api/futures/coins-price-change" }
+  },
+  "price_history": {
+    "candles": { "path": "/api/futures/price/ohlc-history" }
+  },
+  "open_interest": {
+    "aggregated": { "path": "/api/futures/openInterest/ohlc-aggregated-history" },
+    "pair": { "path": "/api/futures/openInterest/ohlc-history" },
+    "stablecoin": { "path": "/api/futures/openInterest/ohlc-aggregated-stablecoin-margin-history" },
+    "coin_margin": { "path": "/api/futures/openInterest/ohlc-aggregated-coin-margin-history" },
+    "distribution_by_exchange": { "path": "/api/futures/openInterest/exchange-list" },
+    "distribution_exchange_chart": { "path": "/api/futures/openInterest/exchange-history-chart" }
+  },
+  "funding": {
+    "oi_weighted": { "path": "/api/futures/fundingRate/oi-weight-ohlc-history" },
+    "vol_weighted": { "path": "/api/futures/fundingRate/vol-weight-ohlc-history" },
+    "pair": { "path": "/api/futures/fundingRate/ohlc-history" },
+    "current_rates": { "path": "/api/futures/fundingRate/exchange-list" },
+    "accumulated": { "path": "/api/futures/fundingRate/cumulative-exchange-list" },
+    "arbitrage": { "path": "/api/futures/fundingRate/arbitrage" }
+  },
+  "long_short": {
+    "global_ratio": { "path": "/api/futures/globalLongShortAccountRatio/history" },
+    "top_accounts": { "path": "/api/futures/topLongShortAccountRatio/history" },
+    "top_positions": { "path": "/api/futures/topLongShortPositionRatio/history" },
+    "taker_ratio": { "path": "/api/taker-buysell-volume-exchange-list" }
+  },
+  "liquidations": {
+    "aggregated": { "path": "/api/futures/liquidation/aggregated-history" },
+    "by_coin": { "path": "/api/futures/liquidation/coin-list" },
+    "by_exchange": { "path": "/api/futures/liquidation/exchange-list" },
+    "orders": { "path": "/api/futures/liquidation/order" },
+    "heatmap": { "path": "/api/futures/liquidation/aggregate-heatmap" }
+  },
+  "order_book": {
+    "pair_depth": { "path": "/api/futures-orderbook-history" },
+    "coin_depth": { "path": "/api/futures-aggregated-orderbook-history" },
+    "large_orders_current": { "path": "/api/large-orderbook" },
+    "large_orders_history": { "path": "/api/large-orderbook-history" },
+    "whale_alerts": { "path": "/api/hyperliquid-whale-alert" },
+    "whale_positions": { "path": "/api/hyperliquid-whale-position" }
+  },
+  "taker": {
+    "coin_history": { "path": "/api/aggregated-taker-buysell-volume-history" },
+    "by_exchange": { "path": "/api/taker-buysell-volume-exchange-list" }
+  },
+  "spot": {
+    "coins": { "path": "/api/spot-supported-coins" },
+    "coins_markets": { "path": "/api/spot-coins-markets" },
+    "price_history": { "path": "/api/spot-price-ohlc-history" }
+  },
+  "options": {
+    "info": { "path": "/api/info" },
+    "max_pain": { "path": "/api/option-max-pain" }
+  },
+  "onchain": {
+    "assets": { "path": "/api/exchange-assets" },
+    "balance_list": { "path": "/api/exchange-balance-list" },
+    "balance_chart": { "path": "/api/exchange-balance-chart" }
+  },
+  "etf": {
+    "list": { "path": "/api/bitcoin-etfs" },
+    "flows": { "path": "/api/etf-flows-history" },
+    "premium": { "path": "/api/bitcoin-etf-premium-discount-history" }
+  },
+  "grayscale": {
+    "holdings": { "path": "/api/grayscale-holding-list" },
+    "premium": { "path": "/api/grayscale-premium-history" }
+  },
+  "indicators": {
+    "fear_greed": { "path": "/api/index/fear-greed-history" },
+    "rsi": { "path": "/api/futures-rsi-list" },
+    "rainbow": { "path": "/api/bitcoin-rainbow-chart" },
+    "pi_cycle": { "path": "/api/pi" }
+  },
+  "bitfinex": {
+    "longs_shorts": { "path": "/api/bitfinex-margin-long-short" }
+  }
+}

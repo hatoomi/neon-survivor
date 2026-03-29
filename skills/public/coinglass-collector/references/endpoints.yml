@@ -1,0 +1,158 @@
+# Update these to match CoinGlass API base and paths for your plan.
+# The collector will skip any endpoint missing here or returning plan errors.
+
+base_url: "https://api.coinglass.com/api/pro/v1"
+
+headers:
+  api_key_headers: ["coinglassSecret", "X-API-KEY"]
+
+market_metadata:
+  coins: 
+    path: "/market/coins"
+  pairs:
+    # expects params: { exchange: "Binance" }
+    path: "/market/pairs"
+  exchanges:
+    path: "/market/exchanges"
+
+market_data:
+  coins_summary:
+    # expects params: { symbol: "BTC" | "ETH" }
+    path: "/market/coins/summary"
+  pairs_summary:
+    path: "/market/pairs/summary"
+  price_changes:
+    path: "/market/price/changes"
+
+price_history:
+  # expects params: { exchange: "Binance", pair: "BTCUSDT"|"ETHUSDT", interval: "h1"|"d1" }
+  candles: 
+    path: "/market/price/history"
+
+open_interest:
+  aggregated:
+    # expects params: { symbol }
+    path: "/futures/openInterest/aggregated"
+  pair:
+    # expects params: { exchange, pair }
+    path: "/futures/openInterest/pair"
+  stablecoin:
+    # expects params: { symbol }
+    path: "/futures/openInterest/stablecoin"
+  coin_margin:
+    # expects params: { symbol }
+    path: "/futures/openInterest/coinMargin"
+  distribution_by_exchange:
+    # expects params: { symbol }
+    path: "/futures/openInterest/distribution/exchange"
+  distribution_exchange_chart:
+    # expects params: { symbol, range }
+    path: "/futures/openInterest/distribution/exchange/chart"
+
+funding:
+  oi_weighted:
+    path: "/futures/funding/oiWeighted"
+  vol_weighted:
+    path: "/futures/funding/volumeWeighted"
+  pair:
+    path: "/futures/funding/pair"
+  current_rates:
+    path: "/futures/funding/current"
+  accumulated:
+    path: "/futures/funding/accumulated"
+  arbitrage:
+    path: "/futures/funding/arbitrage"
+
+long_short:
+  global_ratio:
+    path: "/futures/longShort/global"
+  top_accounts:
+    path: "/futures/longShort/topAccounts"
+  top_positions:
+    path: "/futures/longShort/topPositions"
+  taker_ratio:
+    path: "/futures/taker/ratio"
+
+liquidations:
+  aggregated:
+    path: "/futures/liquidations/aggregated"
+  by_coin:
+    path: "/futures/liquidations/byCoin"
+  by_exchange:
+    path: "/futures/liquidations/byExchange"
+  orders:
+    # plan-restricted on many tiers
+    path: "/futures/liquidations/orders"
+  heatmap:
+    # plan-restricted on many tiers
+    path: "/futures/liquidations/heatmap"
+
+order_book:
+  pair_depth:
+    path: "/orderbook/pair/depth"
+  coin_depth:
+    path: "/orderbook/coin/depth"
+  large_orders_current:
+    path: "/orderbook/largeOrders/current"
+  large_orders_history:
+    path: "/orderbook/largeOrders/history"
+  whale_alerts:
+    path: "/whales/alerts"
+  whale_positions:
+    path: "/whales/positions"
+
+taker:
+  coin_history:
+    path: "/futures/taker/coin/history"
+  by_exchange:
+    path: "/futures/taker/byExchange"
+
+spot:
+  coins:
+    path: "/spot/coins"
+  coins_markets:
+    path: "/spot/markets"
+  price_history:
+    path: "/spot/price/history"
+
+options:
+  info:
+    path: "/options/info"
+  max_pain:
+    path: "/options/maxPain"
+
+onchain:
+  assets:
+    path: "/onchain/exchanges/assets"
+  balance_list:
+    path: "/onchain/exchanges/balance/list"
+  balance_chart:
+    path: "/onchain/exchanges/balance/chart"
+
+etf:
+  list:
+    path: "/etf/list"
+  flows:
+    path: "/etf/flows"
+  premium:
+    path: "/etf/premium"
+
+grayscale:
+  holdings:
+    path: "/grayscale/holdings"
+  premium:
+    path: "/grayscale/premium"
+
+indicators:
+  fear_greed:
+    path: "/indicators/fearGreed"
+  rsi:
+    path: "/indicators/rsi"
+  rainbow:
+    path: "/indicators/rainbow"
+  pi_cycle:
+    path: "/indicators/piCycle"
+
+bitfinex:
+  longs_shorts:
+    path: "/bitfinex/positions"

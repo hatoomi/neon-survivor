@@ -1,0 +1,68 @@
+{
+  "providers": {
+    "FRED": {
+      "lastSuccessAt": null,
+      "lastErrorAt": null,
+      "lastStatus": null,
+      "requestCountWindow": 0,
+      "backoffState": null
+    },
+    "FedTreasury": {
+      "lastSuccessAt": null,
+      "lastErrorAt": null,
+      "lastStatus": null,
+      "requestCountWindow": 0,
+      "backoffState": null
+    },
+    "LunarCrush": {
+      "lastSuccessAt": "2026-03-09T03:57:19.592555Z",
+      "lastErrorAt": null,
+      "lastStatus": 200,
+      "requestCountWindow": 1,
+      "backoffState": null
+    },
+    "Laevitas": {
+      "lastSuccessAt": null,
+      "lastErrorAt": null,
+      "lastStatus": null,
+      "requestCountWindow": 0,
+      "backoffState": null
+    },
+    "Deribit": {
+      "lastSuccessAt": "2026-03-09T04:09:20.081474Z",
+      "lastErrorAt": null,
+      "lastStatus": 200,
+      "requestCountWindow": 1,
+      "backoffState": null
+    },
+    "Binance": {
+      "lastSuccessAt": null,
+      "lastErrorAt": null,
+      "lastStatus": null,
+      "requestCountWindow": 0,
+      "backoffState": null
+    },
+    "Coinglass": {
+      "lastSuccessAt": "2026-03-09T03:58:12.064264Z",
+      "lastErrorAt": null,
+      "lastStatus": 200,
+      "requestCountWindow": 1,
+      "backoffState": null
+    },
+    "CryptoQuant": {
+      "lastSuccessAt": null,
+      "lastErrorAt": null,
+      "lastStatus": null,
+      "requestCountWindow": 0,
+      "backoffState": null
+    },
+    "Dune": {
+      "lastSuccessAt": null,
+      "lastErrorAt": null,
+      "lastStatus": null,
+      "requestCountWindow": 0,
+      "backoffState": null
+    }
+  },
+  "updatedAt": "2026-03-09T03:57:19.592609Z"
+}
