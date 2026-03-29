@@ -312,8 +312,37 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 
 ---
 
-**Version:** 1.1  
-**Last Curated:** 2026-03-27 21:44 Dubai Time  
+---
+
+## 📅 RECENT UPDATES (2026-03-29)
+
+### Telegram Bot Token Updated
+**Time:** 11:36 AM Dubai (2026-03-29)  
+**Action:** New Telegram bot token applied via config.patch  
+**Bot:** @Hatoomi_bot (active)  
+**Status:** Restart successful, all systems operational
+
+### Current BTC Market Snapshot (March 29, 2026)
+**Price:** $66,657 (down -1.9% from $67,943 on March 7)  
+**24h Volume:** $10.71B  
+**Fear & Greed:** 9/100 (Extreme Fear) — down from 12/100  
+**Structure:** Holding key support $65K-$66K ✅  
+**Context:** Middle East tensions + rising energy costs dampening risk appetite  
+**Funding:** Negative (shorts paying longs)  
+**Max Pain:** $85K (June 26 expiry)  
+**Base Case:** $65K-$68K consolidation, neutral-to-bullish IF breaks $68.2K, invalidation below $65K
+
+### Git Repository Status
+**Last Commit:** ced92de (2026-03-29 11:44 AM Dubai)  
+**Files Committed:** 17 (3,535 insertions) — daily logs, heartbeat state, BTC analysis files, data snapshots, coinglass-collector skill  
+**Push Status:** ⚠️ Pending (no GitHub credentials configured — HTTPS requires username/token, no SSH key found)  
+**Workaround:** All commits safe locally, push will complete once authentication is set up
+
+---
+
+**Version:** 1.2  
+**Last Curated:** 2026-03-29 12:04 Dubai Time  
 **Changelog:**
+- v1.2 (2026-03-29 12:04): Added Telegram bot update, current BTC snapshot (March 29), git repository status
 - v1.1 (2026-03-27 21:44): Added ONYX.md to memory structure for ONYX-specific market intelligence
 - v1.0 (2026-03-27 21:39): Initial population from daily logs and BTC analysis
