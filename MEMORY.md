@@ -224,6 +224,22 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 
 **Status:** Framework active, data pipelines pending (stablecoins, ETF flows, on-chain)
 
+**First Dashboard Run (2026-03-29):**
+- Composite Score: 42/100 (neutral-bearish with bullish divergences)
+- Market Regime: High Volatility Transition (Distribution → Bear Contraction pivot point)
+- Key Tension: Weekly bullish (HH/HL) vs daily bearish (LH/LL)
+- Extreme Fear (9/100) at $66K support = potential capitulation zone
+- Action Bias: WAIT for daily CHoCH or strong $65K-$66K defense
+
+**MODULE 10 — Signal Engine (Added 2026-03-29):**
+- Optional post-report execution layer
+- Converts ONYX bias into trade-ready setup ONLY after liquidation heatmap screenshots provided
+- Two-stage system: ONYX report → heatmap screenshots → Signal Engine analysis → trade setup (if valid)
+- Allowed verdicts: LONG SETUP VALID / SHORT SETUP VALID / WAIT FOR SWEEP THEN CONFIRM / NO TRADE
+- Operating rule: No heatmap = no final trade setup
+- New commands: /signal, /execute, /heatmap
+- Status: v1.1 active, Signal Engine inactive until screenshots provided
+
 ---
 
 ## 🔑 KEY LEARNINGS & PATTERNS
@@ -332,17 +348,67 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 **Max Pain:** $85K (June 26 expiry)  
 **Base Case:** $65K-$68K consolidation, neutral-to-bullish IF breaks $68.2K, invalidation below $65K
 
+### ONYX ELITE First Dashboard Run (March 29, 2026)
+**Time:** 12:08 PM Dubai  
+**Request:** Mohammed asked for full 9-score dashboard  
+**Composite Score:** 42/100 (neutral-bearish with bullish divergences)
+
+**9 Scores:**
+1. Liquidity: 58/100 (neutral-bullish — EM4 recovery improving)
+2. Leverage (inverse): 72/100 (bullish — negative funding, low leverage)
+3. On-Chain: 50/100 (neutral — insufficient data)
+4. Technical: 38/100 (bearish-neutral — daily LH/LL, weekly HH/HL)
+5. Fundamental: 65/100 (bullish — BTC fundamentals solid)
+6. Narrative: 25/100 (bearish — Extreme Fear, no catalyst)
+7. Smart Money: 55/100 (neutral-bullish — call-heavy options, Max Pain $85K)
+8. Risk (inverse): 35/100 (high risk — geopolitical, energy costs, daily structure broken)
+9. Composite: 42/100 (market at inflection point)
+
+**Scenarios:**
+- Bull (40%): Hold $65K → $70K → $75K → $85K (by June 26)
+- Base (45%): Chop $63K-$70K for 2-4 weeks
+- Bear (15%): Lose $65K → $63K → $60K → $56K
+
+**Recommendation:** DO NOT TRADE YET — wait for daily CHoCH or strong $65K-$66K defense with volume
+
+### ONYX ELITE Signal Engine Added (March 29, 2026)
+**Time:** 12:18 PM Dubai  
+**Version:** v1.1  
+**Module:** MODULE 10 (optional post-report execution layer)
+
+**Purpose:** Convert ONYX market bias into trade-ready execution plan ONLY after reviewing current liquidation heatmap screenshots
+
+**Key Features:**
+- Two-stage system: ONYX report first → heatmap screenshots → Signal Engine analysis → trade setup (if valid)
+- Analyzes liquidation clusters above/below price, liquidity magnets, sweep direction, trap risk
+- Requires confirmation after sweeps before validating entry
+- 4 verdicts only: LONG SETUP VALID / SHORT SETUP VALID / WAIT FOR SWEEP THEN CONFIRM / NO TRADE
+- Operating rule: No heatmap = no final trade setup
+
+**New Commands:**
+- ONYX /signal BTC — setup watch mode (no screenshots = watch levels only)
+- ONYX /signal BTC after heatmap — full execution analysis
+- ONYX /execute BTC — only valid if heatmap already provided
+- ONYX /heatmap BTC — analyze liquidation map only
+
+**Status:** Signal Engine inactive until liquidation heatmap screenshots provided
+
 ### Git Repository Status
-**Last Commit:** ced92de (2026-03-29 11:44 AM Dubai)  
-**Files Committed:** 17 (3,535 insertions) — daily logs, heartbeat state, BTC analysis files, data snapshots, coinglass-collector skill  
-**Push Status:** ⚠️ Pending (no GitHub credentials configured — HTTPS requires username/token, no SSH key found)  
-**Workaround:** All commits safe locally, push will complete once authentication is set up
+**Last Commits (March 29):**
+- ced92de (11:44 AM) — 17 files (daily logs, heartbeat, BTC data, coinglass skill)
+- abcc922 (12:05 PM) — 2 files (MEMORY.md v1.2, today's events)
+- 6ac4254 (12:18 PM) — ONYX ELITE Signal Engine patch (FOUNDATION-backup.md)
+- f3b205c (12:18 PM) — Daily log update (Signal Engine patch applied)
+
+**Push Status:** ⚠️ Pending (no GitHub credentials — HTTPS requires username/token, no SSH key)  
+**Workaround:** All commits safe locally, push will complete once authentication set up
 
 ---
 
-**Version:** 1.2  
-**Last Curated:** 2026-03-29 12:04 Dubai Time  
+**Version:** 1.3  
+**Last Curated:** 2026-03-29 12:20 Dubai Time  
 **Changelog:**
+- v1.3 (2026-03-29 12:20): Added ONYX ELITE first dashboard run (Composite 42/100), Signal Engine v1.1 (MODULE 10), latest git commits
 - v1.2 (2026-03-29 12:04): Added Telegram bot update, current BTC snapshot (March 29), git repository status
 - v1.1 (2026-03-27 21:44): Added ONYX.md to memory structure for ONYX-specific market intelligence
 - v1.0 (2026-03-27 21:39): Initial population from daily logs and BTC analysis
