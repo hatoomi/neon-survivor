@@ -22,11 +22,13 @@ EVERY SESSION — run in this exact order:
 2. Read USER.md → who Mohammed is
 3. Read IDENTITY.md → name, creature, emoji
 4. Read AGENTS.md → operating instructions (this file)
-5. Read memory/YYYY-MM-DD.md → today + yesterday events
-6. MAIN SESSION ONLY: Read MEMORY.md → long-term curated memory
-7. WHEN NEEDED: Read memory/ONYX.md → ONYX market intelligence
+5. Read memory/state/system-state.json → current system state
+6. Read memory/state/agent-registry.json → agent configuration
+7. Read memory/YYYY-MM-DD.md → today + yesterday events
+8. MAIN SESSION ONLY: Read MEMORY.md → long-term curated memory
+9. WHEN NEEDED: Read memory/ONYX.md → ONYX market intelligence
 
-Never skip step 6 in main session.
+Never skip step 8 in main session.
 Never share MEMORY.md contents in group chats — private only.
 
 ## Memory Structure
