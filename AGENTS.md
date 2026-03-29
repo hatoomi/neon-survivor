@@ -75,11 +75,33 @@ Format for every memory entry:
 
 ## Backup Rules
 
+### Git Commit Rules (CRITICAL)
+
+Before every git add -A or git add operation:
+ - VERIFY secrets/ is listed in .gitignore
+ - NEVER commit files from secrets/ directory
+ - SSH keys, credentials, tokens must ONLY exist on disk
+ - If secrets/ is not in .gitignore, add it BEFORE staging files
+
 After every file creation or modification:
- - git add [file]
+ - git add [file] (verify not in secrets/)
  - git commit -m "[Action] [what] — [description]"
- - git push origin main
+ - git push origin main (see push command below)
  - Confirm push before reporting done
+
+### Git Push Command (MANDATORY)
+
+ALL git push operations must use this exact command:
+```
+GIT_SSH_COMMAND='ssh -i /data/.openclaw/workspace/secrets/github_rsa' git push origin main
+```
+
+NEVER use plain `git push` — always include GIT_SSH_COMMAND prefix.
+
+SSH key location: /data/.openclaw/workspace/secrets/github_rsa
+This key must NEVER be committed to git history.
+
+### General Backup Rules
 
 Never leave working tree dirty at end of session.
 MEMORY.md must always be committed to GitHub after updates.
