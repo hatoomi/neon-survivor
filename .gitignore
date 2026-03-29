@@ -36,3 +36,5 @@ temp/
 # Large project directories (keep separate repos)
 tandem-browser/
 
+memory/snapshots/
+backups/
