@@ -364,9 +364,10 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 
 ---
 
-**Version:** 1.3  
-**Last Curated:** 2026-03-29 12:20 Dubai Time  
+**Version:** 1.4  
+**Last Curated:** 2026-03-29 17:15 Dubai Time  
 **Changelog:**
+- v1.4 (2026-03-29 17:15): Memory system v2.0 upgrade complete (tiered architecture), BTC DATA AGENT removed, Git security rules added
 - v1.3 (2026-03-29 12:20): Added ONYX ELITE first dashboard run (Composite 42/100), Signal Engine v1.1 (MODULE 10), latest git commits
 - v1.2 (2026-03-29 12:04): Added Telegram bot update, current BTC snapshot (March 29), git repository status
 - v1.1 (2026-03-27 21:44): Added ONYX.md to memory structure for ONYX-specific market intelligence
