@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "costGovernance": true,
+  "contextInjection": {
+    "heartbeat": {
+      "loadFiles": ["HEARTBEAT.md"],
+      "maxTokens": 500,
+      "description": "Heartbeat checks load HEARTBEAT.md only"
+    },
+    "routineTools": {
+      "loadFiles": [],
+      "maxTokens": 200,
+      "description": "Routine tool calls (exec, read, fetch) load no identity files"
+    },
+    "analysis": {
+      "loadFiles": ["SOUL.md"],
+      "maxTokens": 6000,
+      "description": "Analysis sessions load SOUL.md + task context only"
+    },
+    "explicitSession": {
+      "loadFiles": ["SOUL.md", "AGENTS.md", "USER.md", "IDENTITY.md", "MEMORY.md"],
+      "maxTokens": 10000,
+      "description": "Full context only when user explicitly initiates a session"
+    }
+  },
+  "excludeFromAutoLoad": [
+    "AGENTS.md",
+    "USER.md", 
+    "IDENTITY.md",
+    "MEMORY.md"
+  ],
+  "rationale": "Cost governance v1.1 — enforce token discipline across all call types",
+  "createdAt": "2026-03-31T02:43:00.000Z",
+  "lastModified": "2026-03-31T02:43:00.000Z"
+}

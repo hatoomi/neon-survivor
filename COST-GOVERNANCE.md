@@ -109,7 +109,22 @@
 
 ---
 
+## Persistence & Configuration
+
+**Context Control File:** `/data/.openclaw/workspace/.openclaw/context-config.json`
+
+This file persists context injection rules across restarts:
+- Heartbeat calls: HEARTBEAT.md only (500 token cap)
+- Routine tool calls: No identity files (200 token cap)
+- Analysis sessions: SOUL.md only (6,000 token cap)
+- Explicit sessions: Full context available (10,000 token cap)
+
+Update this file to modify context loading behavior permanently.
+
+---
+
 **Version:** 1.1  
 **Status:** Active  
 **Enforcement:** Mandatory  
-**Last Updated:** 2026-03-31 02:39 Dubai Time
+**Last Updated:** 2026-03-31 02:43 Dubai Time  
+**Config File:** .openclaw/context-config.json (persistent)
