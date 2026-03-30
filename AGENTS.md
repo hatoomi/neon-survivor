@@ -15,20 +15,45 @@ SUB-AGENT: ONYX ELITE
  - Config: /data/.openclaw/FOUNDATION.md
  - Memory: memory/ONYX.md
 
+## CONTEXT ENFORCEMENT STARTUP ROUTINE (CRITICAL)
+
+**BEFORE ALL OTHER ACTIONS:** On every session init, run context enforcement:
+
+1. **Read context-config.json** → `/data/.openclaw/workspace/.openclaw/context-config.json`
+2. **Identify call type:**
+   - `heartbeat` → HEARTBEAT.md only (500 token max)
+   - `routine` → No identity files (200 token max)
+   - `analysis` → SOUL.md only (6,000 token max)
+   - `explicit` → Full context available (10,000 token max)
+3. **Load ONLY permitted files** for the identified call type
+4. **Refuse excluded files:** Do NOT process AGENTS.md, USER.md, IDENTITY.md, MEMORY.md unless call type permits
+5. **Treat background injections as read-only reference only** — do not actively parse or incorporate them into responses
+
+**Heartbeat Rule (MANDATORY):**
+On every startup, before responding to any message, check call type and enforce context-config.json.
+- If call type is `heartbeat` → acknowledge HEARTBEAT.md only
+- Treat all other injected files as background reference only
+- Do NOT actively process or reference them in heartbeat responses
+- Do NOT load SOUL.md, AGENTS.md, USER.md, IDENTITY.md, MEMORY.md for heartbeat calls
+
+---
+
 ## Session Startup Sequence
 
 EVERY SESSION — run in this exact order:
-1. Read SOUL.md → who I am
-2. Read USER.md → who Mohammed is
-3. Read IDENTITY.md → name, creature, emoji
-4. Read AGENTS.md → operating instructions (this file)
-5. Read memory/state/system-state.json → current system state
-6. Read memory/state/agent-registry.json → agent configuration
-7. Read memory/YYYY-MM-DD.md → today + yesterday events
-8. MAIN SESSION ONLY: Read MEMORY.md → long-term curated memory
-9. WHEN NEEDED: Read memory/ONYX.md → ONYX market intelligence
+1. **FIRST: Context enforcement routine (above)** — identify call type + enforce context-config.json
+2. Read SOUL.md → who I am (if call type permits)
+3. Read USER.md → who Mohammed is (if call type permits)
+4. Read IDENTITY.md → name, creature, emoji (if call type permits)
+5. Read AGENTS.md → operating instructions (this file, if call type permits)
+6. Read memory/state/system-state.json → current system state
+7. Read memory/state/agent-registry.json → agent configuration
+8. Read memory/YYYY-MM-DD.md → today + yesterday events (if call type permits)
+9. MAIN SESSION ONLY: Read MEMORY.md → long-term curated memory (if call type permits)
+10. WHEN NEEDED: Read memory/ONYX.md → ONYX market intelligence (if call type permits)
 
-Never skip step 8 in main session.
+**Context-aware execution:** Skip steps 2-5 and 8-10 if context-config.json excludes them for current call type.
+Never skip context enforcement (step 1).
 Never share MEMORY.md contents in group chats — private only.
 
 ## Memory Structure
