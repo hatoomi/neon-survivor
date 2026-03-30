@@ -391,9 +391,62 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 
 ---
 
-**Version:** 1.3  
-**Last Curated:** 2026-03-29 12:20 Dubai Time  
+---
+
+## 📅 SESSION UPDATE (2026-03-31 04:43 GMT+8)
+
+### Telegram Bot Token Fixed
+**Time:** 04:31 GMT+8 (2026-03-31)  
+**Issue:** Previous token (8620551672) was invalid (401 Unauthorized)  
+**Action:** Updated botToken to 8600823477:AAF8MaovsYoiCu77WRXEg8JWr0ELxKTTYG4  
+**Verification:** Direct curl test successful, `/getMe` endpoint authenticated  
+**Bot:** @Hatoomi_bot (now operational)  
+**Status:** ✅ DM + group messaging working  
+**Test Messages Sent:**
+- ✅ Personal DM: "Hatoomi online" (message_id 88)
+- ✅ FAMILY BOT group: "Hey team! How was everyone's day?..." (message_id 91)
+
+### Gateway Config Patch Applied
+**Time:** 04:31 GMT+8 (2026-03-31)  
+**Changes:**
+1. `channels.telegram.botToken` — Updated to new valid token
+2. `agents.defaults.heartbeat.every` — Set to "60m" (previously default)
+3. `agents.list[0]` — Added `model: 'anthropic/claude-haiku-4-5'` for main agent
+
+**Restart:** ✅ Successful (PID 65, signal SIGUSR1, 2s delay)  
+**Status:** All three changes persisted and verified
+
+### Background Activity Summary
+**Cron Jobs:** 0 (none scheduled)  
+**Active Sessions:** 1 (main agent running, Haiku 4.5)  
+**Sub-Agent Pool:** 3 completed ONYX ELITE runs (Sonnet 4.5 — Mar 29)  
+**Sub-Agents Active:** 0 (all idle, ready on-demand)  
+**Telegram Polling:** ✅ Active (continuous)  
+**Gateway Heartbeat:** ✅ Active (60m interval)
+
+### Cost Governance Status (v1.1 Active)
+**Model Routing:**
+- Main agent: Claude Haiku 4.5 (lightweight, fastest, cheapest)
+- ONYX ELITE: Claude Sonnet 4.5 (heavier reasoning, market analysis)
+- Fallback: Haiku if Sonnet unavailable
+
+**Context Injection:**
+- Heartbeat calls: HEARTBEAT.md only (500 token max)
+- Routine calls: No identity files (200 token max)
+- Analysis calls: SOUL.md only (6,000 token max)
+- Explicit calls: Full context available (10,000 token max)
+
+**Current Session Usage:**
+- Total: ~55K tokens (Haiku running this conversation)
+- Estimated cost: $0.39 USD
+- Rate: ~$0.007 per 1K tokens (Haiku with cache)
+
+---
+
+**Version:** 1.4  
+**Last Curated:** 2026-03-31 04:43 GMT+8  
 **Changelog:**
+- v1.4 (2026-03-31 04:43): Telegram token fixed (new bot 8600823477 authenticated), config patch applied (heartbeat 60m, model set), background activity inventory complete, cost governance v1.1 confirmed active
 - v1.3 (2026-03-29 12:20): Added ONYX ELITE first dashboard run (Composite 42/100), Signal Engine v1.1 (MODULE 10), latest git commits
 - v1.2 (2026-03-29 12:04): Added Telegram bot update, current BTC snapshot (March 29), git repository status
 - v1.1 (2026-03-27 21:44): Added ONYX.md to memory structure for ONYX-specific market intelligence
