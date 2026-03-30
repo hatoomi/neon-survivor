@@ -1,5 +1,5 @@
 # MEMORY.md — Long-Term Curated Memory
-**Last Updated:** 2026-03-27
+**Last Updated:** 2026-03-31
 
 ---
 
@@ -482,4 +482,92 @@ CoinGlass API v3 authentication is working correctly with `CG-API-KEY` header. T
 - Location: `/data/.openclaw/workspace/.env.coinglass`
 - Contents: API key, auth header, base URL
 - Ready for integration with CoinGlass skill
+
+
+---
+
+## 📡 COINGLASS V4 API INTEGRATION (2026-03-31 05:09 GMT+8) — FULLY OPERATIONAL
+
+**Status:** ✅ **FULLY OPERATIONAL — 5/5 CORE ENDPOINTS VERIFIED**
+
+**V4 Wiring Details (PRODUCTION):**
+- API Key: `4f662defa2ee433aa4d9e7091c3938b3` ✅
+- Auth Header: `CG-API-KEY` ✅
+- Base URL: `https://open-api-v4.coinglass.com` ✅
+- API Version: `v4` ✅
+- Status: **ALL ENDPOINTS WORKING & TESTED**
+
+### ✅ VERIFIED WORKING ENDPOINTS (Tested 2026-03-31 05:00-05:09 GMT+8)
+
+**1. Funding Rate (by Exchange)**
+- Endpoint: `/api/futures/funding-rate/exchange-list?symbol=BTC`
+- Status: ✅ HTTP 200 WORKING
+- Response: Real-time funding rates from Binance, OKX, Bybit, etc.
+- Sample: `{"code":"0","data":[{"exchange":"Binance","funding_rate":0.00065700,...}]}`
+
+**2. Open Interest (Aggregated)**
+- Endpoint: `/api/futures/open-interest/exchange-list?symbol=BTC`
+- Status: ✅ HTTP 200 WORKING
+- Response: Total OI $49.3B, by margin type (coin/stablecoin), per exchange
+- Sample: `{"code":"0","data":[{"exchange":"All","open_interest_usd":49.3B,...}]}`
+
+**3. Liquidations (24h, 12h, 4h, 1h Cascades)**
+- Endpoint: `/api/futures/liquidation/coin-list?symbol=BTC`
+- Status: ✅ HTTP 200 WORKING
+- Response: BTC liquidations $173.4M 24h ($116.6M long, $56.7M short)
+- Sample: `{"code":"0","data":[{"symbol":"BTC","liquidation_usd_24h":173.4M,...}]}`
+
+**4. Fear & Greed Index (1000+ Historical Data)**
+- Endpoint: `/api/index/fear-greed-history?limit=1`
+- Status: ✅ HTTP 200 WORKING
+- Response: 1000+ FGI values with BTC price correlation history
+- Sample: `{"code":"0","data":{"data_list":[...9,8,11,...],"price_list":[...],"time_list":[...]}}`
+
+**5. Long/Short Account Ratio (by Exchange)**
+- Endpoint: `/api/futures/global-long-short-account-ratio/history?symbol=BTCUSDT&interval=h4&limit=1&exchange=Binance`
+- Status: ✅ HTTP 200 WORKING
+- Response: Global L/S ratio 1.93 (65.9% long, 34.1% short)
+- Sample: `{"code":"0","data":[{"time":1774900800000,"global_account_long_percent":65.9,"global_account_long_short_ratio":1.93}]}`
+
+### Configuration Files Created
+
+**File 1: `.env.coinglass` (Config)**
+```
+COINGLASS_BASE_URL=https://open-api-v4.coinglass.com
+COINGLASS_API_VERSION=v4
+COINGLASS_API_KEY=4f662defa2ee433aa4d9e7091c3938b3
+COINGLASS_AUTH_HEADER=CG-API-KEY
+COINGLASS_ENDPOINTS_WORKING=5
+COINGLASS_LAST_TESTED=2026-03-31T05:03:00Z
+```
+
+**File 2: `COINGLASS_ENDPOINTS.md` (Full Reference)**
+- Location: `/data/.openclaw/workspace/COINGLASS_ENDPOINTS.md`
+- Contents: Complete endpoint reference with samples, usage notes
+- Includes 3 additional endpoints for future wiring (ETF flows, Bull peak, Bubble index)
+
+### Integration Status
+
+**Ready for:** Wiring into ONYX ELITE data pipelines
+- ✅ Macro Liquidity Layer (Fear & Greed Index)
+- ✅ Derivatives Layer (Funding Rate, OI, Liquidations)
+- ✅ Smart Money Layer (L/S Ratio by exchange)
+- ⏳ On-Chain Layer (wire stablecoin flows next)
+
+### Key Technical Findings
+
+1. **V3 vs V4:** V3 endpoints returned 404/500 errors; V4 uses cleaner `/api` structure
+2. **Symbol Format:** 
+   - Global endpoints: use `BTC`
+   - Exchange-specific: use `BTCUSDT`
+3. **Time Intervals:** Supported `h1`, `h4`, `d1` (hourly, 4-hourly, daily)
+4. **Historical Data:** All endpoints support time-series retrieval with configurable limits
+5. **Response Format:** All return `{"code":"0","data":[...]}` on success
+
+### Git Commits
+
+- **693224e** (05:03 GMT+8): feat: CoinGlass V4 fully wired — 5 core endpoints verified + endpoint reference saved
+- **e4906a1** (earlier): feat: wire CoinGlass API key v3 — auth verified, supported-coins endpoint working
+
+**Both commits pushed to GitHub main branch ✅**
 
