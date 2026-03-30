@@ -1,130 +1,103 @@
-# COST-GOVERNANCE.md — OpenClaw Cost Control v1.0
-**Created:** 2026-03-31  
-**Last Updated:** 2026-03-31
+# COST-GOVERNANCE.md
+# OpenClaw Operational Cost Rules — v1.0
+# Authority: Mohammed Al Hatem | Galaxy Institutional Trading System
+# Created: 2026-03-30
+# Override priority: HIGHEST — these rules supersede all other operational defaults
 
 ---
 
-## MANDATORY COST GOVERNANCE RULES
+## 1. MODEL ROUTING
 
-### Model Routing (Strict)
+| Call Type | Model | Condition |
+|---|---|---|
+| Heartbeat / health check | `claude-haiku-4-5-20251001` | Always |
+| Memory read / write | `claude-haiku-4-5-20251001` | Always |
+| Status check | `claude-haiku-4-5-20251001` | Always |
+| Tool routing decision | `claude-haiku-4-5-20251001` | Always |
+| Simple data fetch | `claude-haiku-4-5-20251001` | Always |
+| Prompt A — macro gate | `claude-sonnet-4-6` | Active session only |
+| Prompt B — execution engine | `claude-sonnet-4-6` | Only if Prompt A = TRADE ALLOWED |
+| Signal generation | `claude-sonnet-4-6` | Active session only |
+| Multi-step reasoning | `claude-sonnet-4-6` | Active session only |
+| Any Opus call | `claude-opus-4-6` | EXPLICIT USER COMMAND ONLY — never autonomous |
 
-**Haiku (claude-haiku-4-5-20251001):**
-- ALL routine tasks
-- Memory reads
-- Status checks
-- Heartbeat executions
-- Tool routing decisions
-- Simple data fetches
-
-**Sonnet (claude-sonnet-4-6):**
-- Analysis tasks
-- Signal generation
-- Multi-step reasoning
-- ONYX ELITE commands
-
-**Opus:**
-- NEVER use autonomously
-- Only on explicit user command
+**Default fallback: if call type is ambiguous → route to Haiku.**
 
 ---
 
-## Context Injection (Strict)
+## 2. CONTEXT INJECTION
 
-**Heartbeat / Health Check Calls:**
-- Load HEARTBEAT.md ONLY
-- No other identity files
+### Heartbeat calls
+- Load: `HEARTBEAT.md` only
+- Skip: SOUL.md, AGENTS.md, USER.md, IDENTITY.md
+- Max system prompt: 500 tokens
 
-**Routine Data Fetch Calls:**
-- No identity files at all
-- Task prompt only
+### Routine data fetch calls
+- Load: task prompt only — no identity files
+- Max system prompt: 500 tokens
 
-**Analysis Calls:**
-- SOUL.md + task context only
-- Skip AGENTS/USER/IDENTITY unless needed
+### Analysis calls (Prompt A / Prompt B / signal gen)
+- Load: `SOUL.md` + task context
+- Skip: AGENTS.md, USER.md, IDENTITY.md unless explicitly required by task
+- Max system prompt: 6,000 tokens
 
-**Full System Context:**
-- Only when user explicitly initiates a session
-
----
-
-## Loop Throttling
-
-**Polling Intervals:**
-- Minimum 10 min interval between autonomous polling cycles
-
-**Trade Setup Gating:**
-- If no active trade setup detected in Prompt A gate → skip Prompt B entirely
-- Do not call API unnecessarily
-
-**Macro Regime Caching:**
-- Cache macro regime result for 4 hours
-- Do not re-run Prompt A within same session window
+### Full context (user-initiated session only)
+- Load: all five core files — SOUL.md, AGENTS.md, USER.md, IDENTITY.md, HEARTBEAT.md
+- Triggered by: explicit user message starting a session
+- Max system prompt: 8,000 tokens
 
 ---
 
-## Token Discipline
+## 3. LOOP THROTTLING
 
-**System Prompt Limits:**
-- Routine calls: 2,000 token max
-- Analysis calls: 6,000 token max
+- Minimum autonomous poll interval: **10 minutes**
+- If Prompt A gate returns NO TRADE SETUP → skip Prompt B entirely, no API call
+- Macro regime result cache TTL: **4 hours** — do not re-run Prompt A within same window
+- If three consecutive Prompt A calls return NO TRADE SETUP → extend poll interval to 30 minutes automatically
+- No autonomous calls between 00:00–05:00 Dubai time (UTC+4) unless user has active open position
 
-**Memory Context:**
-- Truncate to last 3 exchanges for routine calls
+---
+
+## 4. TOKEN DISCIPLINE
+
+| Call Type | Max System Prompt | Memory Context |
+|---|---|---|
+| Routine / heartbeat | 2,000 tokens | Last 1 exchange only |
+| Data fetch | 500 tokens | None |
+| Analysis | 6,000 tokens | Last 3 exchanges |
+| Full session | 8,000 tokens | Last 5 exchanges |
+
+- Truncate all memory injections to the limits above — never inject full conversation history
+- Strip whitespace, comments, and markdown decorators from injected files before token counting
+- If system prompt exceeds limit → truncate injected memory first, then task context, never core identity
 
 ---
 
 ## 5. ONYX ELITE SUB-AGENT RULES
 
-**Model Selection:**
-- ONYX runs on claude-haiku-4-5 for all monitoring and scanning tasks
-- ONYX escalates to claude-sonnet-4-6 only when: confidence score >= 80 AND liquidity regime = EM3+
-
-**Context Management:**
-- ONYX never loads full identity stack
-- SOUL.md only, max 3,000 tokens
-
-**Result Caching:**
-- Screener outputs: 2-hour TTL
-- Sentiment outputs: 30-minute TTL
+- ONYX runs on Haiku for all monitoring and scanning tasks
+- ONYX escalates to Sonnet only when: confidence score ≥ 80 AND liquidity regime = EM3+
+- ONYX never loads full identity stack — SOUL.md only, max 3,000 tokens
+- ONYX result cache TTL: 2 hours for screener outputs, 30 minutes for sentiment outputs
 
 ---
 
 ## 6. AUDIT
 
-**Logging:**
 - Log model used + token count for every API call to `/data/.openclaw/workspace/cost_log.jsonl`
-
-**Reporting:**
-- Weekly cost summary auto-generated every Monday 08:00 Dubai time (UTC+4)
+- Weekly cost summary auto-generated every Monday 08:00 Dubai time
 - Alert via Telegram if daily API spend exceeds $5.00
 
 ---
 
-## Implementation Notes
+## ENFORCEMENT NOTE
 
-- These rules override previous behavior to reduce API costs
-- Hatoomi agent must enforce these rules automatically
-- ONYX ELITE sub-agent inherits these constraints
-- Any deviation requires explicit user approval
+These rules are operational constraints, not suggestions. Any autonomous loop, scheduled task, or sub-agent call that violates model routing or context injection rules is considered a misconfiguration and must be corrected before the next cycle. Mohammed reviews this file on a monthly basis or after any major architecture change.
 
 ---
 
-## Persistence & Configuration
-
-**Context Control File:** `/data/.openclaw/workspace/.openclaw/context-config.json`
-
-This file persists context injection rules across restarts:
-- Heartbeat calls: HEARTBEAT.md only (500 token cap)
-- Routine tool calls: No identity files (200 token cap)
-- Analysis sessions: SOUL.md only (6,000 token cap)
-- Explicit sessions: Full context available (10,000 token cap)
-
-Update this file to modify context loading behavior permanently.
-
----
-
-**Version:** 1.1  
-**Status:** Active  
-**Enforcement:** Mandatory  
-**Last Updated:** 2026-03-31 02:43 Dubai Time  
-**Config File:** .openclaw/context-config.json (persistent)
+**Version:** 1.0 (Authoritative)  
+**Authority:** Mohammed Al Hatem  
+**Override Priority:** HIGHEST  
+**Last Updated:** 2026-03-31 03:03 GMT+8  
+**Status:** Active & Enforced
