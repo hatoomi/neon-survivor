@@ -451,3 +451,35 @@ G. Narrative (sector rotation, attention flow, narrative strength)
 - v1.2 (2026-03-29 12:04): Added Telegram bot update, current BTC snapshot (March 29), git repository status
 - v1.1 (2026-03-27 21:44): Added ONYX.md to memory structure for ONYX-specific market intelligence
 - v1.0 (2026-03-27 21:39): Initial population from daily logs and BTC analysis
+
+---
+
+## 📡 COINGLASS API INTEGRATION (2026-03-31 05:00 GMT+8)
+
+**Status:** ✅ **Authentication Verified**
+
+**Wiring Details:**
+- API Key: `4f662defa2ee433aa4d9e7091c3938b3` (verified working)
+- Auth Header: `CG-API-KEY` (correct format)
+- Base URL: `https://open-api-v3.coinglass.com/api`
+- Status: **AUTH VERIFIED, DATA ENDPOINTS TBD**
+
+**Working Endpoints:**
+- ✅ `/api/futures/supported-coins` (returns 1000+ coin list, HTTP 200)
+
+**Endpoints Under Investigation (HTTP 404):**
+- ❌ `/api/futures/fundingRate`
+- ❌ `/api/futures/openInterest`
+- ❌ `/api/futures/liquidation`
+- ❌ `/api/indicator/fear-greed`
+- ❌ `/api/bitcoin/indicator/fear-greed-index`
+- ❌ `/api/futures/funding-rate/current` (with hyphen)
+
+**Assessment:**
+CoinGlass API v3 authentication is working correctly with `CG-API-KEY` header. The `/supported-coins` endpoint successfully returns full list of available symbols. Data endpoints (funding, OI, liquidations, sentiment) are returning 404 Not Found — likely plan-restricted or different API structure. Next: check CoinGlass documentation for correct v3 data endpoint paths.
+
+**Config File Created:**
+- Location: `/data/.openclaw/workspace/.env.coinglass`
+- Contents: API key, auth header, base URL
+- Ready for integration with CoinGlass skill
+
