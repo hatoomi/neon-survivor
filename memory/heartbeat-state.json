@@ -1,17 +1,11 @@
 {
-  "last_check": "2026-03-31T08:32:00+04:00",
-  "check_cycle": "morning_brief",
-  "status": "PARTIAL",
-  "tasks_completed": [
-    "BTC market snapshot (price $66.7K, +0.40% 24h)",
-    "Weather check (unavailable — network issue)"
-  ],
-  "tasks_failed": [
-    "Telegram messaging — 401 Unauthorized (gateway config mismatch)"
-  ],
-  "alerts": [
-    "TELEGRAM AUTH ISSUE: message tool failed despite valid bot token"
-  ],
-  "next_check": "2026-03-31T09:32:00+04:00",
-  "note": "Morning brief skipped due to Telegram auth failure. Bot validation successful (getMe OK). Likely gateway config needs restart or token sync."
+  "last_heartbeat": "2026-04-01T17:32:00+04:00",
+  "timezone": "Asia/Kuala_Lumpur",
+  "local_time": "2026-04-01T17:32:00+08:00",
+  "dubai_time": "2026-04-01T17:32:00+04:00",
+  "status": "HEARTBEAT_OK",
+  "onyx_status": "last_snapshot_2026-03-29_stable",
+  "alerts": null,
+  "next_scheduled_task": "evening_sync_20:00_dubai",
+  "notes": "Routine checks complete. Evening sync approaching in 2h 28m."
 }
