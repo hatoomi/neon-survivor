@@ -1,11 +1,15 @@
 {
-  "last_heartbeat": "2026-04-01T17:32:00+04:00",
-  "timezone": "Asia/Kuala_Lumpur",
-  "local_time": "2026-04-01T17:32:00+08:00",
-  "dubai_time": "2026-04-01T17:32:00+04:00",
-  "status": "HEARTBEAT_OK",
-  "onyx_status": "last_snapshot_2026-03-29_stable",
-  "alerts": null,
-  "next_scheduled_task": "evening_sync_20:00_dubai",
-  "notes": "Routine checks complete. Evening sync approaching in 2h 28m."
+  "last_check": "2026-04-02T00:32:00Z",
+  "last_check_dubai": "2026-04-02T04:32:00+04:00",
+  "status": "OK",
+  "quiet_hours": true,
+  "checks_completed": {
+    "onyx_md": "reviewed - no pending intelligence",
+    "alerts": "none",
+    "github": "none",
+    "api_errors": "none",
+    "btc_movement": "none",
+    "agent_status": "operational"
+  },
+  "next_action": "Morning brief scheduled for 08:00 Dubai (3.5 hours)"
 }
